@@ -21,7 +21,7 @@ void Update()
     {
       rb.velocity=new Vector2(rb.velocity.x,flyPower);
     }
-
+  
 }
 	
 }
