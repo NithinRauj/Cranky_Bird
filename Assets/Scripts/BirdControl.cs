@@ -19,7 +19,6 @@ void Update()
     {
       rb.velocity=new Vector2(rb.velocity.x,vertVelocity);
       anim.SetBool("isFlapping",true);
-      Debug.Log("Flap");
     }
     else{
       anim.SetBool("isFlapping",false);
