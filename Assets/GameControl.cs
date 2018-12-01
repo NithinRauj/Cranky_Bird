@@ -44,7 +44,7 @@ public void DisplayFinalScore()
   scoreText.gameObject.SetActive(false);
   gameOverText.gameObject.SetActive(true);
   gameOverText.text+=score.ToString();
-  gameOverText.text+="\nTouch to play again";
+  gameOverText.text+="\nTouch to \n play again";
 }
 public void UpdateScore()
 {

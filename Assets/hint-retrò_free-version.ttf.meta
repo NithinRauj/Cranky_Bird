@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 21afbe300bb235a4cb3c43f013cf3391
+timeCreated: 1543689679
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: hint-retr?_free-version
+  fontNames:
+  - hint-retr?_free-version
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
