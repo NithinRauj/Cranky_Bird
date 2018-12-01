@@ -43,11 +43,19 @@ void Update()
 }
 
 public void KillBird()
-{
+{ 
+    if(!isDead)
+    {
      isDead=true;
      GameControl.instance.DisplayFinalScore();
     anim.SetTrigger("isDead");
     Destroy(gameObject,4f);
+    }
+
+    else
+    {
+        return;
+    }
 }
 
 //Defines what to do once the bird collides with columns
