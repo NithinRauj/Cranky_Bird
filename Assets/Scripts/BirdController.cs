@@ -45,6 +45,7 @@ void Update()
 public void KillBird()
 {
      isDead=true;
+     GameControl.instance.DisplayFinalScore();
     anim.SetTrigger("isDead");
     Destroy(gameObject,4f);
 }

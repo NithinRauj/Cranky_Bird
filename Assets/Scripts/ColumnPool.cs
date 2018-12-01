@@ -9,6 +9,8 @@ private GameObject[] columns=new GameObject[5];
 private int columnCount=0; 
 private float timeSinceLastSpawn=0f;
 public float spawnRate=3f;
+public float minColumnHeight=-3f;
+public float maxColumnHeight=3f;
 
 
 void Start()
@@ -25,7 +27,7 @@ void Update()
     timeSinceLastSpawn+=Time.deltaTime;
     if(!BirdController.isDead && timeSinceLastSpawn >spawnRate)
     {
-      Vector3 columnPos=new Vector3(10,Random.Range(-3f,3f),0);
+      Vector3 columnPos=new Vector3(10,Random.Range(minColumnHeight,maxColumnHeight),0);
       columns[columnCount].transform.position=columnPos;
       columnCount++;
       timeSinceLastSpawn=Time.deltaTime;

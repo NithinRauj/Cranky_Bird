@@ -28,6 +28,12 @@ void Start()
 {
   scoreText.text=score.ToString();  
 }
+
+public void DisplayFinalScore()
+{
+  gameOverText.gameObject.SetActive(true);
+  gameOverText.text+=scoreText.text;
+}
 public void UpdateScore()
 {
   score++;
