@@ -6,8 +6,16 @@ public class ScrollingObject : MonoBehaviour {
 
 public float scrollSpeed;
 
+
 void Update()
 {
-    transform.Translate(-scrollSpeed*Time.deltaTime,0f,0f);
+    if(!BirdController.isDead)
+    {
+        transform.Translate(-scrollSpeed*Time.deltaTime,0f,0f);
+    }
+    else
+    {
+        return;
+    }
 }	
 }

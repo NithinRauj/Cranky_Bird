@@ -8,7 +8,7 @@ private CircleCollider2D bodyCollider;
 private Rigidbody2D rb;
 private Animator anim;
 public float vertVelocity=2f;
-public bool isDead=false;
+public static bool isDead=false;
 void Start()
 {
   rb=GetComponent<Rigidbody2D>();
@@ -17,6 +17,7 @@ void Start()
 }
 void Update()
 {
+    //To make sure the bird cant flap once it collides with columns
     if(!isDead)
     {
         //For playtesting with mouse 
@@ -42,10 +43,17 @@ void Update()
     
 }
 
+//Defines what to do once the bird collides with columns
 void OnCollisionEnter2D(Collision2D other)
 {
     isDead=true;
     anim.SetTrigger("isDead");
     Destroy(gameObject,4f);
+}
+void OnTriggerExit2D(Collider2D collider)
+{
+   isDead=true;
+    anim.SetTrigger("isDead");
+    Destroy(gameObject,4f); 
 }
 }
