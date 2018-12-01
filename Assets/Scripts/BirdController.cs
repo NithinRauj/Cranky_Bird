@@ -42,17 +42,21 @@ void Update()
     
 }
 
-//Defines what to do once the bird collides with columns
-void OnCollisionEnter2D(Collision2D other)
+public void KillBird()
 {
-    isDead=true;
+     isDead=true;
     anim.SetTrigger("isDead");
     Destroy(gameObject,4f);
 }
+
+//Defines what to do once the bird collides with columns
+void OnCollisionEnter2D(Collision2D other)
+{
+   KillBird();
+}
 void OnTriggerExit2D(Collider2D collider)
 {
-   isDead=true;
-    anim.SetTrigger("isDead");
-    Destroy(gameObject,4f); 
+   if(!collider.GetComponent<ScoreTrigger>())
+   {KillBird();}
 }
 }
