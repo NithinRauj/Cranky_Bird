@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ScoreTrigger : MonoBehaviour {
 
- 
+public GameControl gameControl;
  void OnTriggerEnter2D(Collider2D collider)
  {
-  //update score via gamemanager   
+   if(collider.GetComponent<BirdController>())
+   {gameControl.UpdateScore();}
  }
 }

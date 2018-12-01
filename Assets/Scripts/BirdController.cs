@@ -12,7 +12,6 @@ public static bool isDead=false;
 void Start()
 {
   rb=GetComponent<Rigidbody2D>();
-  bodyCollider=GetComponent<CircleCollider2D>();
   anim=GetComponent<Animator>();
 }
 void Update()

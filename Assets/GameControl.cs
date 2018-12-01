@@ -4,16 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GameControl : MonoBehaviour {
 
-	public Text scoreText;
-    public Text gameOverText;
-    public int score=0;
+//public GameControl instance;
+public Text scoreText;
+public Text gameOverText;
+public int score=0;
     
-    void Start()
-    {
-        
-    }
-    void UpdateScore()
-    {
-      score++;
-    }
+void Start()
+{
+  scoreText.text=score.ToString();  
+}
+public void UpdateScore()
+{
+  score++;
+  scoreText.text=score.ToString();
+}
 }
