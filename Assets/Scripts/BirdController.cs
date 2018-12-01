@@ -34,11 +34,18 @@ void Update()
         rb.velocity=new Vector2(rb.velocity.x,vertVelocity);
         }
     }
+
+    else
+    {
+        return;
+    }
     
 }
 
 void OnCollisionEnter2D(Collision2D other)
 {
-    isDead=false;
+    isDead=true;
+    anim.SetTrigger("isDead");
+    Destroy(gameObject,4f);
 }
 }
