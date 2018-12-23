@@ -7,9 +7,11 @@ public class GameControl : MonoBehaviour {
 
 public Text scoreText;
 public Text gameOverText;
+public GameObject replayButton;
 public int score=0;
 public static GameControl instance;
 
+#region singleton
 /* implemented singleton pattern to make sure only one instance of GameControl 
 is present at a time*/
 void Awake()
@@ -23,15 +25,27 @@ void Awake()
    Destroy(this.gameObject);
  }
 }
+#endregion
     
 void Start()
 {
   scoreText.text=score.ToString();  
 }
 
-void Update()
+// void Update()
+// {
+//   if(BirdController.isDead && (Input.touchCount>1 || Input.GetMouseButtonDown(0)))
+//   {
+//     BirdController.isDead=false;
+//     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+//   }
+
+// }
+
+//when replay button is pressed the below method will be executed
+public void ResetGame()
 {
-  if(BirdController.isDead && (Input.touchCount>1 || Input.GetMouseButtonDown(0)))
+  if(BirdController.isDead)
   {
     BirdController.isDead=false;
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -41,10 +55,10 @@ void Update()
 
 public void DisplayFinalScore()
 {
+  replayButton.SetActive(true);
   scoreText.gameObject.SetActive(false);
   gameOverText.gameObject.SetActive(true);
   gameOverText.text+=score.ToString();
-  gameOverText.text+="\nTouch to \n play again";
 }
 public void UpdateScore()
 {

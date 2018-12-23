@@ -6,7 +6,7 @@ public class BirdController : MonoBehaviour {
 
 private CircleCollider2D bodyCollider;
 private Rigidbody2D rb;
-private Animator anim;
+private Animator anim;   
 public float vertVelocity=2f;
 public static bool isDead=false;
 void Start()
@@ -16,7 +16,7 @@ void Start()
 }
 void Update()
 {
-    //To make sure the bird cant flap once it collides with columns
+    //To make sure the bird can't flap once it collides with columns
     if(!isDead)
     {
         //For playtesting with mouse 
@@ -29,12 +29,23 @@ void Update()
         anim.SetBool("isFlapping",false);
         }
 
-        if(Input.touchCount>0)
+        if(Input.touchCount>0) 
         {
-        rb.velocity=new Vector2(rb.velocity.x,vertVelocity);
+            Touch touch=Input.GetTouch(0);
+            switch(touch.phase)
+            {
+                case TouchPhase.Began:
+                rb.velocity=new Vector2(rb.velocity.x,vertVelocity);
+                break;
+
+                case TouchPhase.Moved:
+                return;
+             
+                case TouchPhase.Ended:
+                return;
+            }
         }
     }
-
     else
     {
         return;
@@ -49,7 +60,6 @@ public void KillBird()
      isDead=true;
      GameControl.instance.DisplayFinalScore();
     anim.SetTrigger("isDead");
-    Destroy(gameObject,4f);
     }
 
     else
